@@ -1,6 +1,7 @@
 package com.ll.domain.wise.controller;
 
 import com.ll.domain.wise.entitiy.Wise;
+import com.ll.domain.wise.service.WiseService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,13 +9,11 @@ import java.util.Scanner;
 
 public class WiseController {
     private final Scanner scanner;
-    private int lastId;
-    private List<Wise> wiseList;
+    private final WiseService wiseService;
 
     public WiseController(Scanner scanner) {
         this.scanner = scanner;
-        this.lastId = 0;
-        this.wiseList = new ArrayList<>();
+        this.wiseService = new WiseService();
     }
 
     public void actionAdd(){
@@ -23,17 +22,18 @@ public class WiseController {
         System.out.println("작가 : ");
         String author  = scanner.nextLine();
 
-        int id = ++lastId;
-        Wise wises = new Wise(id, wise, author);
-        wiseList.add(wises);
+        Wise wises = wiseService.add(wise,author);
 
-        System.out.println(id + "번 명언이 등록되었습니다.");
+        System.out.println(wises.getId() + "번 명언이 등록되었습니다.");
     }
 
     public void actionList() {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
-        for (Wise wise : wiseList.reversed()) {
+
+        List<Wise> wises = wiseService.finaAll();
+
+        for (Wise wise : wises.reversed()) {
             System.out.println(wise.getId() + " / " + wise.getAuthor() + " / " + wise.getWise());
         }
 

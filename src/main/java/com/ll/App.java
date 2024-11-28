@@ -29,6 +29,9 @@ public class App {
             else if(cmd.equals("등록")){
                 wiseController.actionAdd();
             }
+            else if(cmd.equals("목록")){
+                wiseController.actionList();
+            }
         }
 
     }

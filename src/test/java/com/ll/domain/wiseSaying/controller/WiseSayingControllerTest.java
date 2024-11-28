@@ -94,18 +94,18 @@ public class WiseSayingControllerTest {
         String output = AppTest.run("""
                 등록
                 현재를 사랑하라.
-                작사 미상
+                작자 미상
                 등록
                 과거에 집착하지마라.
-                작사 미상
+                작자 미상
                 목록
                 """);
 
         assertThat(output)
                 .contains("번호 / 작가 / 명언")
                 .contains("----------------------")
-                .contains("2 / 작자미상 / 과거에 집착하지 마라.")
-                .contains("1 / 작자미상 / 현재를 사랑하라.")
+                .contains("2 / 작자 미상 / 과거에 집착하지마라.")
+                .contains("1 / 작자 미상 / 현재를 사랑하라.")
         ;
     }
 

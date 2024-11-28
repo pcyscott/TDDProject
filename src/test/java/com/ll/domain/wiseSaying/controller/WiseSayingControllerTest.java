@@ -21,7 +21,6 @@ public class WiseSayingControllerTest {
     public void t2(){
         String output = AppTest.run("""
                 목록
-                종료
                 """);
 
 
@@ -35,7 +34,6 @@ public class WiseSayingControllerTest {
         String output = AppTest.run("""
                 목록
                 목록
-                종료
                 """);
 
         String[] split = output.split("명령\\)");

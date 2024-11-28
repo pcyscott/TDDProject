@@ -4,13 +4,18 @@ import java.util.Scanner;
 
 public class WiseController {
     private final Scanner scanner;
+    private int lastId;
     public WiseController(Scanner scanner) {
         this.scanner = scanner;
+        this.lastId = 0;
     }
 
     public void actionAdd(){
         System.out.println("명언 : ");
         System.out.println("작가 : ");
-        System.out.println("1번 명언이 등록되었습니다.");
+
+        int id = ++lastId;
+
+        System.out.println(id + "번 명언이 등록되었습니다.");
     }
 }

@@ -1,11 +1,11 @@
 package com.ll.domain.wise.entitiy;
 
-public class Wise {
+public class WiseSaying {
     private int id;
     private String wise;
     private String author;
 
-    public Wise(int id, String wise, String author) {
+    public WiseSaying(int id, String wise, String author) {
         this.id=id;
         this.wise=wise;
         this.author=author;

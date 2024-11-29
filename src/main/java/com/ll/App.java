@@ -22,15 +22,21 @@ public class App {
             System.out.print("명령) ");
             String cmd = scanner.nextLine();
 
-            if (cmd.equals("종료")) {
+            String[] cmdBits = cmd.split("\\? ");
+            String actionName = cmdBits[0];
+
+            if ("종료".equals(actionName)) {
                 systemController.actionExit();
                 break;
             }
-            else if(cmd.equals("등록")){
+            else if("등록".equals(actionName)){
                 wiseController.actionAdd();
             }
-            else if(cmd.equals("목록")){
+            else if("목록".equals(actionName)){
                 wiseController.actionList();
+            }
+            else if("삭제".equals(actionName)){
+                wiseController.actionDelete(cmd);
             }
         }
 

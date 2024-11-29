@@ -22,9 +22,8 @@ public class App {
             System.out.print("명령) ");
             String cmd = scanner.nextLine();
 
-            String[] cmdBits = cmd.split("\\? ");
+            String[] cmdBits = cmd.split("\\?");
             String actionName = cmdBits[0];
-
             if ("종료".equals(actionName)) {
                 systemController.actionExit();
                 break;

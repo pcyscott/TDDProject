@@ -26,6 +26,6 @@ public class WiseRepository {
     }
 
     public boolean deleteById(int id) {
-        return wiseSayingList.removeIf(wiseSaying -> wiseSaying.getId() == id);
+        return wiseSayingList.removeIf(wiseSaying -> id == wiseSaying.getId());
     }
 }

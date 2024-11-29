@@ -40,11 +40,11 @@ public class WiseController {
     }
 
     public void actionDelete(String cmd) {
-        String[] cmds = null;
+        String[] cmdBits = null;
         int id = 0;
         try{
-            cmds = cmd.split("\\? ");
-            id = Integer.parseInt(cmds[1].split("=")[1]);
+            cmdBits = cmd.split("\\?");
+            id = Integer.parseInt(cmdBits[1].split("=")[1]);
        }
        catch (Exception e){
            System.out.println("명령어를 잘못 입력하셨습니다.");
@@ -53,10 +53,11 @@ public class WiseController {
 
         boolean removed = wiseService.deleteById(id);
 
-        /*if(!removed){
+        if(!removed){
             System.out.println(id+"번 명언은 존재하지 않습니다.");
-        }*/
+            return;
+        }
 
-        System.out.println(id+"번 명언이 삭제되었습니다.");
+        System.out.println(id + "번 명언이 삭제되었습니다.");
     }
 }
